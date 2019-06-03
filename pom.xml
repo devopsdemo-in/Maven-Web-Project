@@ -6,7 +6,7 @@
   <groupId>com.mt</groupId>
   <artifactId>maven-web-project</artifactId>
   <packaging>war</packaging>
-  <version>1.4-SNAPSHOT</version>
+  <version>3.3-SNAPSHOT</version>
   <name>Maven Web Project 18th August</name>
   <description>Maven Web Project for Java Project</description>
 
@@ -81,17 +81,36 @@
 
 	<distributionManagement>
 	    <repository>
-	      <id>nexus</id>
+	      <id>nexus-release</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://localhost:8085/mithuntechnologies/repository/flipkart-releases/</url>
+	      <url>http://192.168.230.145:8081/repository/Maven-release/</url>
 	    </repository>
 	    <snapshotRepository>
-	      <id>nexus</id>
+	      <id>nexus-snapshot</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://localhost:8085/mithuntechnologies/repository/flipkart-snapshot/</url>
+	      <url>http://192.168.230.145:8081/repository/Maven-SNAPSHOT/</url>
 	    </snapshotRepository>
-</distributionManagement>
-	
+	</distributionManagement>
+	<repositories>
+        <repository>
+                <id>proxy</id>
+                <url>http://192.168.230.145:8081/repository/Maven-test-proxy/</url>
+        </repository>
+        <repository>
+                <id>nexus</id>
+                <url>http://192.168.230.145:8081/repository/Maven-release/</url>
+        </repository>
+        <repository>
+                <id>snapshot</id>
+                <url>http://192.168.230.145:8081/repository/Maven-SNAPSHOT/</url>
+        </repository>
+        </repositories>
+        <pluginRepositories>
+         <pluginRepository>
+                <id>proxy</id>
+                <url>http://192.168.230.145:8081/repository/Maven-test-proxy/</url>
+         </pluginRepository>
+        </pluginRepositories>
 	
   <build>
     <plugins>
